@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Axios from 'axios';
-// import { Moment } from 'react-moment';
+// import Moment from 'react-moment';
 import { Link } from 'react-router-dom'
 
 export class Posts extends Component {
@@ -50,7 +50,7 @@ export class Posts extends Component {
                                         <div className="card my-2 shadow">
                                             <div className="card-header">
                                                 <div className="row">
-                                                    <p className="float-right">{post.postBy.username} </p> &nbsp; &nbsp; <br/>
+                                                    <p className="float-right">{post.postBy.username} </p> &nbsp; &nbsp; <br />
                                                     <p>
                                                         {/* <Moment format="YYYY/MM/DD"> */}
                                                         {post.date}

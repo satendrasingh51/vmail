@@ -61,7 +61,7 @@ class Login extends Component {
     render() {
         const { msg } = this.state;
         if (this.state.loggedIn) {
-            this.props.history.push('/profile')
+            this.props.history.push('/')
         }
         return (
             <div className="container">
@@ -82,7 +82,7 @@ class Login extends Component {
                                 }
                                 <div className="form-group">
                                     <label htmlFor="username">Username</label>
-                                    <input type="text" onChange={this.changeHandle} value={this.state.username} name="username" id="username" className="form-control" placeholder="example@vmail.io" />
+                                    <input type="text" onChange={this.changeHandle} value={this.state.username} name="username" id="username" className="form-control" placeholder="Username" />
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="password">Password</label>

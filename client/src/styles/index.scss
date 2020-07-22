@@ -21,3 +21,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+pre {
+  background: rgb(122, 122, 122);
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+}
+.ql-syntax{
+   background: rgb(122, 122, 122) !important;
+  color: #fff;
+}

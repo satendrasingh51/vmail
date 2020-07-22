@@ -59,14 +59,14 @@ export class NewPost extends Component {
         toolbar: [
             ['bold', 'italic', 'underline', 'strike', 'blockquote', 'code-block'],
             [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-            ['link', 'image']
+            ['link', 'image', 'video']
         ],
     }
 
     formats = [
         'bold', 'italic', 'underline', 'strike', 'blockquote', 'code-block',
         'list', 'bullet',
-        'link', 'image'
+        'link', 'image', 'video'
     ]
 
 
@@ -101,7 +101,7 @@ export class NewPost extends Component {
                                 }
                                 <div className="form-group">
                                     <label htmlFor="title">Question</label>
-                                    <input type="text" value={this.state.title} onChange={this.quilleditor} name="title" id="title" className="form-control" />
+                                    <textarea value={this.state.title} onChange={this.quilleditor} name="title" id="title" className="form-control" cols="30" rows="2"></textarea>
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="textarea">Body</label>
@@ -115,10 +115,6 @@ export class NewPost extends Component {
                                 </div>
                                 <input type="submit" className="btn btn-danger" />
                             </form>
-                        </div>
-                        <div className="card-body">
-                            <p>OverView</p>
-                            <div dangerouslySetInnerHTML={{ __html: this.state.textarea }} />
                         </div>
                     </div>
                 </div>

@@ -48,21 +48,23 @@ export class Profile extends Component {
     render() {
         const { userData } = this.state;
         return (
-            <div className="container">
+            <div className="container-fluid">
                 <div className="row">
                     {
                         userData ?
-                            <div className="card-group col-md-4 my-5">
-                                <div className="card mt-5" style={{ height: "600px" }}>
-                                    <img src={`/images/${userData.image}`} style={{ borderRadius: '50%', width: '45%', height: '35%' }} className="card-img-top m-auto" alt="..." />
+                            <div className="card-group col-md-3 my-5">
+                                <div className="card mt-5">
+                                    <div className="card-header">
+                                        <img src={`/images/${userData.image}`} alt="..." />
+                                    </div>
                                     <div className="card-body">
                                         <h5 className="card-title">Profile</h5>
                                         <hr />
-                                        <p className="card-text"><b>Vmail &nbsp; &nbsp;</b> {userData.username} </p>
-                                        <p className="card-text"><b>Name &nbsp; &nbsp;</b> {userData.name} </p>
-                                        <p className="card-text"><b>Mobile &nbsp; &nbsp;</b> {userData.mobile} </p>
-                                        <p className="card-text"><b>Date of Birth &nbsp; &nbsp; </b> {userData.dob} </p>
-                                        <p className="card-text"><b>Gender &nbsp; &nbsp;</b> {userData.gender} </p>
+                                        <p className="card-text"><b>Username</b><span className="float-right">{userData.username}</span></p>
+                                        <p className="card-text"><b>Name </b> <span className="float-right"> {userData.name} </span></p>
+                                        <p className="card-text"><b>Mobile </b> <span className="float-right"> {userData.mobile} </span></p>
+                                        <p className="card-text"><b>Date of Birth </b> <span className="float-right"> {userData.dob} </span></p>
+                                        <p className="card-text"><b>Gender </b> <span className="float-right"> {userData.gender} </span></p>
                                     </div>
                                     <div className="card-footer">
                                         <small className="text-muted">{userData.date} </small>
