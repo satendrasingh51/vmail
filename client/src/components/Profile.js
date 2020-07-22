@@ -52,11 +52,9 @@ export class Profile extends Component {
                 <div className="row">
                     {
                         userData ?
-                            <div className="card-group col-md-3 my-5">
-                                <div className="card mt-5">
-                                    <div className="card-header">
-                                        <img src={`/images/${userData.image}`} alt="..." />
-                                    </div>
+                            <div className="card-group col-md-3 my-5 ">
+                                <div className="card mt-3 position-fixed">
+                                    <img className="card-img-top" src={`/images/${userData.image}`} alt="..." />
                                     <div className="card-body">
                                         <h5 className="card-title">Profile</h5>
                                         <hr />
