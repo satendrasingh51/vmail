@@ -148,7 +148,7 @@ export class Post extends Component {
                                     <div className="col-md-1">
                                         <img src={`/images/${comment.image}`} style={{ width: '50px', height: '50px', borderRadius: '50%' }} className="card-img-top" alt="..." />
                                         <div className="mt-5" onClick={this.likeHeandle}> 
-                                            {likes ? <div>{likes.length}<i style={{fontSize: '50px', color: 'gray'}} className="fa fa-gratipay"></i></div> : null}
+                                            {likes ? <div>{likes.length}<i style={{fontSize: '50px', color: 'gray', textShadow: '0px 0px 30px gray'}} className="fa fa-gratipay"></i></div> : null}
                                         </div>
                                     </div>
                                     <div className="col-md-11">

@@ -1,11 +1,12 @@
-// Your variable overrides
+ // Your variable overrides
 $theme-colors: (
   "primary": #0074d9,
   "danger": #c40e04b9
 );
 
-// Bootstrap and its default variables
+/* // Bootstrap and its default variables */
 @import "~bootstrap/scss/bootstrap";
+
 
 body {
   margin: 0px;
