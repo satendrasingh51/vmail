@@ -14,14 +14,6 @@ const NewPostSchema = new mongoose.Schema({
         type: ObjectId,
         ref: 'users'
     },
-    likes: [
-        {
-            user: {
-                type: ObjectId,
-                ref: 'users'
-            }
-        }
-    ],
     comment: [
         {
             user: {
@@ -35,6 +27,14 @@ const NewPostSchema = new mongoose.Schema({
             name: {
                 type: String
             },
+            likes: [
+                {
+                    user: {
+                        type: ObjectId,
+                        ref: 'users'
+                    }
+                }
+            ],
             image: {
                 type: String
             },

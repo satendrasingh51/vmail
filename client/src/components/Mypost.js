@@ -54,7 +54,7 @@ export class Mypost extends Component {
                 {
                     mypost.length ? mypost.map((post, index) =>
                         <div key={index}>
-                            <div className="card mt-5 shadow">
+                            <div className="card shadow">
                                 <div className="card-header">
                                     <p className="card-text"><b className="d-flax">N. &nbsp;</b> {index + 1}</p>
                                     <div className="card-text" dangerouslySetInnerHTML={{ __html: post.title }} />

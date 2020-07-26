@@ -82,7 +82,7 @@ export class Post extends Component {
             if (token) {
                 config.headers['x-auth-token'] = token;
             }
-            const res = await Axios.put(`/api/like/${this.props.match.params.title}`, newData, config)
+            const res = await Axios.put(`/api/like`, newData, config)
             if (res.data) {
                 this.setState(res.data)
             }
@@ -114,7 +114,7 @@ export class Post extends Component {
     render() {
         const { post } = this.state;
         const comments = this.state.post.comment;
-        const likes = this.state.post.likes
+
         return (
             <div>
                 <div className="col-md-6 m-auto" style={{ paddingTop: '6rem' }}>
@@ -147,8 +147,11 @@ export class Post extends Component {
                                 <div key={index} className="row my-2">
                                     <div className="col-md-1">
                                         <img src={`/images/${comment.image}`} style={{ width: '50px', height: '50px', borderRadius: '50%' }} className="card-img-top" alt="..." />
-                                        <div className="mt-5" onClick={this.likeHeandle}> 
-                                            {likes ? <div>{likes.length}<i style={{fontSize: '50px', color: 'gray', textShadow: '0px 0px 30px gray'}} className="fa fa-gratipay"></i></div> : null}
+                                        <div className="mt-5" onClick={this.likeHeandle}>
+                                            {console.log(comment)}
+                                            {comment.likes ? <div>{comment.length}<i style={{ fontSize: '50px', color: 'gray', textShadow: '0px 0px 30px gray' }}
+                                                className="fa fa-gratipay"></i>
+                                            </div> : null}
                                         </div>
                                     </div>
                                     <div className="col-md-11">

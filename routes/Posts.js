@@ -137,24 +137,18 @@ router.post(
 // @route    PUT api/posts / like /: id
 // @desc     Like a post
 // @access   Private
-router.put('/like/:id', auth, async (req, res) => {
-    try {
-        const post = await NewPost.findById(req.params.id);
-
-        // Check if the post has already been liked
-        if (post.likes.some(like => like.user.toString() === req.user.id)) {
-            return res.status(400).json({ msg: 'Post already liked' });
+router.put('/like', auth, async (req, res) => {
+    NewPost.findByIdAndUpdate(req.body.id, {
+        $push: { likes: req.user._id }
+    }, {
+        new: true
+    }).exec((error, result) => {
+        if (error) {
+            return res.status(400).json({ error: error.msg })
+        } else {
+            res.json(result)
         }
-
-        post.likes.unshift({ user: req.user.id });
-
-        await post.save();
-
-        return res.json(post.likes);
-    } catch (err) {
-        console.error(err.message);
-        res.status(500).send('Server Error');
-    }
+    })
 });
 
 module.exports = router;

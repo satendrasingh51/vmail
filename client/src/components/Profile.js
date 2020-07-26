@@ -50,33 +50,28 @@ export class Profile extends Component {
         return (
             <div className="container-fluid">
                 <div className="row">
-                    {
-                        userData ?
-                            <div className="card-group col-md-3 my-5 ">
-                                <div className="card mt-3 position-fixed">
-                                    <img className="" width="" src={`/images/${userData.image}`} alt="..." />
-                                    <div className="card-body">
-                                        <h5 className="card-title">Profile</h5>
-                                        <hr />
-                                        <p className="card-text"><b>Username</b><span className="float-right">{userData.username}</span></p>
-                                        <p className="card-text"><b>Name </b> <span className="float-right"> {userData.name} </span></p>
-                                        <p className="card-text"><b>Mobile </b> <span className="float-right"> {userData.mobile} </span></p>
-                                        <p className="card-text"><b>Date of Birth </b> <span className="float-right"> {userData.dob} </span></p>
-                                        <p className="card-text"><b>Gender </b> <span className="float-right"> {userData.gender} </span></p>
-                                    </div>
-                                    <div className="card-footer">
-                                        <small className="text-muted">{userData.date} </small>
-                                    </div>
-                                </div>
+                    <div className="col-md-3">
+                        <div className="card shadow" style={{marginTop: '4rem'}}>
+                            <img src={`/images/${userData.image}`} height="300px" className="card-img-top" alt="" />
+                            <div className="card-body">
+                                <h5 className="card-title">Profile</h5>
+                                <hr />
+                                <p className="card-text"><b>Username</b><span className="float-right">{userData.username}</span></p>
+                                <p className="card-text"><b>Name </b> <span className="float-right"> {userData.name} </span></p>
+                                <p className="card-text"><b>Mobile </b> <span className="float-right"> {userData.mobile} </span></p>
+                                <p className="card-text"><b>Date of Birth </b> <span className="float-right"> {userData.dob} </span></p>
+                                <p className="card-text"><b>Gender </b> <span className="float-right"> {userData.gender} </span></p>
                             </div>
-                            : null
-                    }
-                    <div className="col-md-8 m-auto">
-                        <div className="card-group my-5">
-                            <Mypost />
+                            <div className="card-footer">
+                                <p className="text-muted">{userData.date}</p>
+                            </div>
                         </div>
                     </div>
-
+                    <div className="col-md-8">
+                        <div className="my-5">
+                            <Mypost/>
+                        </div>
+                    </div>
                 </div>
             </div>
         )
