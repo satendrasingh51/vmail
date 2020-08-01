@@ -12,7 +12,7 @@ const fileUpload = require('express-fileupload');
 router.use(fileUpload());
 
 // @route    POST api/users
-// @desc     Register user
+// @desc     Register user  
 // @access   Public
 router.post(
   '/create',

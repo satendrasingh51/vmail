@@ -54,7 +54,7 @@ export class Posts extends Component {
                                                     <p>
                                                         {/* <Moment format="YYYY/MM/DD"> */}
                                                         {post.date}
-                                                        {/* </Moment> */}
+                                                        {/* </Moment> */} 
                                                     </p>
                                                 </div>
                                             </div>
