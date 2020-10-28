@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
-// import Moment from 'react-moment'
+import Moment from 'react-moment'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'; // ES6
 
@@ -128,9 +128,9 @@ export class Post extends Component {
                                     <div className="card my-2 shadow">
                                         <div className="card-header">
                                             <h3 >{post.title} </h3> &nbsp;&nbsp;
-                                        {/* <Moment format='DD/MM/YYYY'> */}
+                                        <Moment format='lll'>
                                             <p>{post.date}</p>
-                                            {/* </Moment> */}
+                                            </Moment>
                                         </div>
                                         <div id="textarea" className="card-body">
                                             <div className="card-text" dangerouslySetInnerHTML={{ __html: post.textarea }} />
@@ -148,7 +148,6 @@ export class Post extends Component {
                                     <div className="col-md-1">
                                         <img src={`/images/${comment.image}`} style={{ width: '50px', height: '50px', borderRadius: '50%' }} className="card-img-top" alt="..." />
                                         <div className="mt-5" onClick={this.likeHeandle}>
-                                            {console.log(comment)}
                                             {comment.likes ? <div>{comment.length}<i style={{ fontSize: '50px', color: 'gray', textShadow: '0px 0px 30px gray' }}
                                                 className="fa fa-gratipay"></i>
                                             </div> : null}

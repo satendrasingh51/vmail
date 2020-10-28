@@ -51,7 +51,7 @@ router.post(
       if (user) {
         return res
           .status(400)
-          .json({ msg: 'username already exists' });
+          .json({ msg: [{msg: 'username already exists'}] });
       }
       user = new User({
         username,
@@ -64,7 +64,7 @@ router.post(
       });
       image.mv(`./client/public/images/${image.name}`, function (err) {
         if (err) {
-          return res.status(500).json({ msg: 'something Error' });
+          return res.status(500).json({ msg: [{ msg: 'something Error'}] });
         }
       })
 
@@ -82,13 +82,13 @@ router.post(
 
       jwt.sign(
         payload,
-        config.get('jwtSecret'),
+        config.get('JWT_SECRET'),
         { expiresIn: 360000 },
         (err, token) => {
           if (err) {
             res.json(err)
           } if (token) {
-            res.json({ token, user, msg: 'Registration Successfull' })
+            res.json({ token, user, msg: [{msg: 'Registration Successfull'}] })
           }
         }
       );

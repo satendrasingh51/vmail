@@ -1,4 +1,0 @@
-{
-    "mongodbURI": "mongodb+srv://domesticIndia:cBOW71GNoVBtasdR@domesticindia-0hcnd.mongodb.net/vmail?retryWrites=true&w=majority",
-    "jwtSecret": "jsonwebtokenSecreat"
-}

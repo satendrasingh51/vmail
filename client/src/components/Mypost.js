@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Axios from 'axios';
-
+import Moment from 'react-moment'
 
 export class Mypost extends Component {
 
@@ -63,7 +63,7 @@ export class Mypost extends Component {
                                     <div className="card-text" dangerouslySetInnerHTML={{ __html: post.textarea }} />
                                 </div>
                                 <div className="card-footer">
-                                    <small className="text-muted">{post.date} </small>
+                                    <small className="text-muted"><Moment format="lll">{post.date}</Moment> </small>
                                 </div>
 
                             </div>

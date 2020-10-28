@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Axios from 'axios';
 import Mypost from './Mypost';
+import Moment from 'react-moment'
 
 export class Profile extends Component {
 
@@ -59,11 +60,14 @@ export class Profile extends Component {
                                 <p className="card-text"><b>Username</b><span className="float-right">{userData.username}</span></p>
                                 <p className="card-text"><b>Name </b> <span className="float-right"> {userData.name} </span></p>
                                 <p className="card-text"><b>Mobile </b> <span className="float-right"> {userData.mobile} </span></p>
-                                <p className="card-text"><b>Date of Birth </b> <span className="float-right"> {userData.dob} </span></p>
+                                <p className="card-text"><b>Date of Birth </b> <span className="float-right">
+                                    <Moment format="lll">
+                                {userData.dob}
+                                    </Moment>  </span></p>
                                 <p className="card-text"><b>Gender </b> <span className="float-right"> {userData.gender} </span></p>
                             </div>
                             <div className="card-footer">
-                                <p className="text-muted">{userData.date}</p>
+                                <p className="text-muted"> <Moment format="lll">{userData.date}</Moment></p>
                             </div>
                         </div>
                     </div>
