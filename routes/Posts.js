@@ -1,9 +1,9 @@
-const express = require('express');
-const router = express.Router();
-const { check, validationResult } = require('express-validator');
-const NewPost = require('../models/Posts');
-const auth = require('../middlewares/auth')
-const users = require('../models/users')
+const express=require('express');
+const router=express.Router();
+const {check, validationResult}=require('express-validator');
+const NewPost=require('../models/Posts');
+const auth=require('../middlewares/auth')
+const users=require('../models/users')
 
 
 // @route    POST pan/amount/add
@@ -23,15 +23,15 @@ router.post(
         ]
     ],
     async (req, res) => {
-        const errors = validationResult(req);
+        const errors=validationResult(req);
         if (!errors.isEmpty()) {
-            return res.status(400).json({ msg: errors.array() });
+            return res.status(400).json({msg: errors.array()});
         }
 
         try {
-            const user = await users.findById(req.user.id).select('-password');
-            const { title, textarea } = req.body;
-            const newPost = new NewPost({
+            const user=await users.findById(req.user.id).select('-password');
+            const {title, textarea}=req.body;
+            const newPost=new NewPost({
                 title,
                 textarea,
                 username: user.username,
@@ -39,7 +39,7 @@ router.post(
                 postBy: req.user.id
             });
             await newPost.save().then(resPost => {
-                res.json({ resPost, msg: 'Post add Successfull' })
+                res.json({resPost, msg: 'Post add Successfull'})
             })
         } catch (err) {
             console.error(err.message);
@@ -53,10 +53,10 @@ router.post(
 // @access  Public
 router.get('/post/:id', async (req, res) => {
     try {
-        const post = await NewPost.findById(req.params.id);
+        const post=await NewPost.findById(req.params.id);
         /* // Check for Object id format and pan */
-        if (!req.params.id.match(/^[0-9a-fA-F]{24}$/) || !post) {
-            return res.status(404).send({ msg: 'post not found' });
+        if (!req.params.id.match(/^[0-9a-fA-F]{24}$/)||!post) {
+            return res.status(404).send({msg: 'post not found'});
         }
         res.json(post);
     } catch (error) {
@@ -70,7 +70,7 @@ router.get('/post/:id', async (req, res) => {
 // @access   Public
 router.get('/allposts', async (req, res) => {
     try {
-        const allPosts = await NewPost.find().sort({ data: -1 })
+        const allPosts=await NewPost.find().sort({data: -1})
             .populate("postBy", "_id username")
         res.json(allPosts)
     } catch (error) {
@@ -84,10 +84,10 @@ router.get('/allposts', async (req, res) => {
 // @access  Private
 router.get('/mypost/user', auth, async (req, res) => {
     try {
-        await NewPost.find({ postBy: req.user.id })
+        await NewPost.find({postBy: req.user.id})
             .populate('postBy', 'title textarea')
             .then(myPost => {
-                res.json({ myPost })
+                res.json({myPost})
             })
     } catch (error) {
         console.log(error.message)
@@ -110,14 +110,14 @@ router.post(
         ]
     ],
     async (req, res) => {
-        const errors = validationResult(req);
+        const errors=validationResult(req);
         if (!errors.isEmpty()) {
-            return res.status(400).json({ errors: errors.array() });
+            return res.status(400).json({errors: errors.array()});
         }
         try {
-            const user = await users.findById(req.user.id).select('-password');
-            const post = await NewPost.findById(req.params.id);
-            const newComment = {
+            const user=await users.findById(req.user.id).select('-password');
+            const post=await NewPost.findById(req.params.id);
+            const newComment={
                 comment: req.body.comment,
                 name: user.name,
                 image: user.image,
@@ -139,16 +139,16 @@ router.post(
 // @access   Private
 router.put('/like', auth, async (req, res) => {
     NewPost.findByIdAndUpdate(req.body.id, {
-        $push: { likes: req.user._id }
+        $push: {likes: req.user._id}
     }, {
         new: true
     }).exec((error, result) => {
         if (error) {
-            return res.status(400).json({ error: error.msg })
+            return res.status(400).json({error: error.msg})
         } else {
             res.json(result)
         }
     })
 });
 
-module.exports = router;
+module.exports=router;

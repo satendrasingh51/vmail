@@ -27,6 +27,13 @@ const NewPostSchema = new mongoose.Schema({
             name: {
                 type: String
             },
+            image: {
+                type: String
+            },
+            date: {
+                type: Date,
+                default: Date.now
+            },
             likes: [
                 {
                     user: {
@@ -35,13 +42,6 @@ const NewPostSchema = new mongoose.Schema({
                     }
                 }
             ],
-            image: {
-                type: String
-            },
-            date: {
-                type: Date,
-                default: Date.now
-            }
         }
     ],
     date: {
